@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
         userType: ['', Validators.required],
         businessSize: [''],
         name: ['', Validators.required],
-        email: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
         password: [
           '',
           [Validators.required, this.customValidator.passwordPattern()],
@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  typeOfUser() {
+  get typeOfUser() {
     return this.form.value.userType;
   }
 

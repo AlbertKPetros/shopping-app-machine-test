@@ -15,11 +15,7 @@
 .login-card .card-body {
   padding: 85px 60px 60px;
 }
-@media (max-width: 422px) {
-  .login-card .card-body {
-    padding: 35px 24px;
-  }
-}
+
 .login-card-description {
   font-size: 25px;
   color: #000;

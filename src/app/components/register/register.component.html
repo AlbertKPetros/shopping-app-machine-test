@@ -3,13 +3,13 @@
     <div class="col-sm-10">
       <div class="card">
         <div class="card-header">
-          <h3 class="mb-0">Shopping App - Register</h3>
+          <h3 class="mb-0">Shopping App - Registration</h3>
         </div>
         <div class="card-body">
           <form
             [formGroup]="form"
             autocomplete="off"
-            (submit)="completeRegistration()"
+            (ngSubmit)="completeRegistration()"
           >
             <div class="form-group row">
               <div class="col-sm-6">
@@ -37,7 +37,7 @@
                   </span>
                 </ng-container>
               </div>
-              <div class="col-sm-6" *ngIf="typeOfUser() === 'seller'">
+              <div class="col-sm-6" *ngIf="typeOfUser === 'seller'">
                 <label>Business size</label>
                 <select class="form-control" formControlName="businessSize">
                   <option value="">--Select--</option>
@@ -99,6 +99,12 @@
                     *ngIf="registerFormControl.email.errors?.required"
                   >
                     Email is required
+                  </span>
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.email.errors?.email"
+                  >
+                    Invalid email address
                   </span>
                 </ng-container>
               </div>
@@ -166,6 +172,9 @@
             <hr />
             <div class="form-group row">
               <div class="col-sm-12">
+                <a class="btn btn-light" routerLink="/login" role="button"
+                  >Sign in instead</a
+                >
                 <button class="btn btn-primary float-right" type="submit">
                   Submit
                 </button>
