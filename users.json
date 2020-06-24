@@ -1,1 +1,31 @@
-{ "users": [] }
+{
+  "users": [
+    {
+      "id": "ba4c-081c-1587-3607",
+      "userType": "seller",
+      "businessSize": "largeBusiness",
+      "name": "dsads",
+      "email": "dsd",
+      "password": "dsd",
+      "confirmPassword": "dsdsd"
+    },
+    {
+      "id": "5ff5-89ee-764b-571d",
+      "userType": "",
+      "businessSize": "",
+      "name": "dsd",
+      "email": "dsd",
+      "password": "dsd",
+      "confirmPassword": "dsd"
+    },
+    {
+      "id": "80ba-5ca4-e3de-0bb9",
+      "userType": "buyer",
+      "businessSize": "",
+      "name": "dsds",
+      "email": "dsd",
+      "password": "dsd",
+      "confirmPassword": "dsd"
+    }
+  ]
+}

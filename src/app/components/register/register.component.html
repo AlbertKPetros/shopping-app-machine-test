@@ -6,13 +6,44 @@
           <h3 class="mb-0">Shopping App - Register</h3>
         </div>
         <div class="card-body">
-          <form [formGroup]="form" autocomplete="off">
+          <form
+            [formGroup]="form"
+            autocomplete="off"
+            (submit)="completeRegistration()"
+          >
             <div class="form-group row">
               <div class="col-sm-6">
-                <label for="name">Name</label>
+                <label>Register as a</label>
+                <select
+                  class="form-control"
+                  formControlName="userType"
+                  (change)="onUserTypeChange()"
+                >
+                  <option value="">--Select--</option>
+                  <option
+                    *ngFor="let item of userType"
+                    [ngValue]="item.value"
+                    >{{ item.text }}</option
+                  >
+                </select>
+              </div>
+              <div class="col-sm-6" *ngIf="typeOfUser() === 'seller'">
+                <label>Business size</label>
+                <select class="form-control" formControlName="businessSize">
+                  <option value="">--Select--</option>
+                  <option
+                    *ngFor="let item of businessSize"
+                    [ngValue]="item.value"
+                    >{{ item.text }}</option
+                  >
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <label>Name</label>
                 <input
                   type="text"
-                  id="name"
                   class="form-control"
                   formControlName="name"
                   maxlength="120"
@@ -20,10 +51,9 @@
                 />
               </div>
               <div class="col-sm-6">
-                <label for="email">Email</label>
+                <label>Email</label>
                 <input
                   type="email"
-                  id="email"
                   class="form-control"
                   formControlName="email"
                   maxlength="30"
