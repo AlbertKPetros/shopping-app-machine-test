@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="javascript:void(0)">
-    Shopping App
+    Shopping App -
+    {{ activeUser.userType == "seller" ? "Seller Account" : "Buyer Account" }}
   </a>
   <div class="navbar-collapse collapse" id="collapsingNavbar">
     <ul class="navbar-nav ml-auto">

@@ -15,7 +15,9 @@ export class NavigationComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activeUser = this.credentialService.getCredentials();
+  }
 
   logout() {
     this.credentialService.removeCredentials();

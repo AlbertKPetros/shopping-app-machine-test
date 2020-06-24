@@ -8,6 +8,14 @@
       "email": "seller@gmail.com",
       "password": "Seller@123",
       "confirmPassword": "Seller@123"
+    },
+    {
+      "id": "dbf3-763b-4567-8dac",
+      "userType": "buyer",
+      "businessSize": "",
+      "name": "Albert",
+      "email": "albert@gmail.com",
+      "password": "Albert@123"
     }
   ]
 }
