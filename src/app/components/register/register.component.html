@@ -26,6 +26,16 @@
                     >{{ item.text }}</option
                   >
                 </select>
+                <ng-container
+                  *ngIf="registerFormControl.userType.touched || isSubmitted"
+                >
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.userType.errors?.required"
+                  >
+                    User type is required
+                  </span>
+                </ng-container>
               </div>
               <div class="col-sm-6" *ngIf="typeOfUser() === 'seller'">
                 <label>Business size</label>
@@ -37,6 +47,18 @@
                     >{{ item.text }}</option
                   >
                 </select>
+                <ng-container
+                  *ngIf="
+                    registerFormControl.businessSize.touched || isSubmitted
+                  "
+                >
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.businessSize.errors?.required"
+                  >
+                    Business size is required
+                  </span>
+                </ng-container>
               </div>
             </div>
             <div class="form-group row">
@@ -49,6 +71,16 @@
                   maxlength="120"
                   placeholder="Name"
                 />
+                <ng-container
+                  *ngIf="registerFormControl.name.touched || isSubmitted"
+                >
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.name.errors?.required"
+                  >
+                    Name is required
+                  </span>
+                </ng-container>
               </div>
               <div class="col-sm-6">
                 <label>Email</label>
@@ -59,28 +91,76 @@
                   maxlength="30"
                   placeholder="Name"
                 />
+                <ng-container
+                  *ngIf="registerFormControl.email.touched || isSubmitted"
+                >
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.email.errors?.required"
+                  >
+                    Email is required
+                  </span>
+                </ng-container>
               </div>
             </div>
             <div class="form-group row">
               <div class="col-sm-6">
                 <label>Password</label>
                 <input
-                  type="text"
+                  type="password"
                   class="form-control"
                   formControlName="password"
-                  maxlength="8"
+                  maxlength="30"
                   placeholder="********"
                 />
+                <ng-container
+                  *ngIf="registerFormControl.password.touched || isSubmitted"
+                >
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.password.errors?.required"
+                  >
+                    Password is required
+                  </span>
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.password.errors?.invalidPassword"
+                  >
+                    Password should contain atleast 6 characters, at least 1
+                    uppercase letter, 1 lowercase letter and 1 number
+                  </span>
+                </ng-container>
               </div>
               <div class="col-sm-6">
                 <label>Confirm Password</label>
                 <input
-                  type="text"
+                  type="password"
                   class="form-control"
                   formControlName="confirmPassword"
-                  maxlength="8"
+                  maxlength="30"
                   placeholder="********"
                 />
+                <ng-container
+                  *ngIf="
+                    registerFormControl.confirmPassword.touched || isSubmitted
+                  "
+                >
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.confirmPassword.errors?.required"
+                  >
+                    Confirm password is required
+                  </span>
+                  <span
+                    class="text-danger"
+                    *ngIf="
+                      registerFormControl.confirmPassword.errors
+                        ?.passwordMismatch
+                    "
+                  >
+                    Passwords doesn't match
+                  </span>
+                </ng-container>
               </div>
             </div>
             <hr />
