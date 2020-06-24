@@ -1,3 +1,13 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "c64b-76b0-d7e2-19f6",
+      "userType": "seller",
+      "businessSize": "mediumBusiness",
+      "name": "Seller 123",
+      "email": "seller@gmail.com",
+      "password": "Seller@123",
+      "confirmPassword": "Seller@123"
+    }
+  ]
 }

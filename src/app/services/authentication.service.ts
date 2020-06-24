@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   submitRegistration(register: Register) {
     const { confirmPassword, ...rest } = register;
-    const regObj = register;
+    const regObj = rest;
     return this.http.post<any>(environment.apiBaseUrl + 'users', regObj);
   }
 

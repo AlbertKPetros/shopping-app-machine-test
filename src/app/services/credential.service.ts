@@ -16,4 +16,8 @@ export class CredentialService {
   getCredentials(): User {
     return JSON.parse(sessionStorage.getItem('credentials'));
   }
+
+  removeCredentials() {
+    sessionStorage.removeItem('credentials');
+  }
 }

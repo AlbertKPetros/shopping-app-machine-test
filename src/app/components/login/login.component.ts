@@ -40,10 +40,16 @@ export class LoginComponent implements OnInit {
         .subscribe((user: any) => {
           if (login.password === user[0]?.password) {
             this.credentialService.setCredentials(user[0]);
+            this.navigateToDashBoard(user[0]?.userType);
           } else {
             this.toastr.error('', 'Invalid email or password');
           }
         });
     }
+  }
+
+  navigateToDashBoard(userType: string) {
+    if (userType == 'seller') this.router.navigate(['dashboard-seller']);
+    else this.router.navigate(['dashboard-buyer']);
   }
 }
