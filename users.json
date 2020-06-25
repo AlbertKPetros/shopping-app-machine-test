@@ -1,19 +1,18 @@
 {
   "users": [
     {
-      "id": "c64b-76b0-d7e2-19f6",
+      "id": "09a5-615f-6196-4475",
       "userType": "seller",
-      "businessSize": "mediumBusiness",
-      "name": "Seller 123",
-      "email": "seller@gmail.com",
-      "password": "Seller@123",
-      "confirmPassword": "Seller@123"
+      "businessSize": "largeBusiness",
+      "name": "ffdf",
+      "email": "abcd@gcc.cx",
+      "password": "Albert@123"
     },
     {
-      "id": "dbf3-763b-4567-8dac",
-      "userType": "buyer",
-      "businessSize": "",
-      "name": "Albert",
+      "id": "1009-32fb-cede-ee2d",
+      "userType": "seller",
+      "businessSize": "largeBusiness",
+      "name": "Alb",
       "email": "albert@gmail.com",
       "password": "Albert@123"
     }

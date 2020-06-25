@@ -13,12 +13,19 @@ export class AuthenticationService {
   submitRegistration(register: Register) {
     const { confirmPassword, ...rest } = register;
     const regObj = rest;
+    regObj.email = regObj.email.toLowerCase();
     return this.http.post<any>(environment.apiBaseUrl + 'users', regObj);
   }
 
   getUserCredentialsByEmail(login: Login) {
     return this.http.get<any>(
-      environment.apiBaseUrl + `users?email=${login.email}`
+      environment.apiBaseUrl + `users?email=${login.email.toLowerCase()}`
+    );
+  }
+
+  emailExists(email: string) {
+    return this.http.get<any>(
+      environment.apiBaseUrl + `users?email=${email.toLowerCase()}`
     );
   }
 }

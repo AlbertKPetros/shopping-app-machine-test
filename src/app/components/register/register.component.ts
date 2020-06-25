@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 import { getUniqueId } from '@app/shared/utils/guid';
 import { DropDownService } from '@app/shared/services/drop-down.service';
 import { DropDown } from '@app/shared/models/drop-down.model';
@@ -7,6 +12,8 @@ import { AuthenticationService } from '@app/services/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CustomValidationService } from '@app/shared/services/custom-validation.service';
+import { map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -41,7 +48,11 @@ export class RegisterComponent implements OnInit {
         userType: ['', Validators.required],
         businessSize: [''],
         name: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
+        email: [
+          '',
+          [Validators.required, Validators.email],
+          [emailIdExist(this.authService)],
+        ],
         password: [
           '',
           [Validators.required, this.customValidator.passwordPattern()],
@@ -49,10 +60,9 @@ export class RegisterComponent implements OnInit {
         confirmPassword: ['', Validators.required],
       },
       {
-        validator: this.customValidator.passwordMatch(
-          'password',
-          'confirmPassword'
-        ),
+        validator: Validators.compose([
+          this.customValidator.passwordMatch('password', 'confirmPassword'),
+        ]),
       }
     );
   }
@@ -91,3 +101,17 @@ export class RegisterComponent implements OnInit {
     }
   }
 }
+
+const emailIdExist = (authService: AuthenticationService) => (
+  c: FormControl
+) => {
+  if (!c || String(c.value).length === 0) {
+    return of(null);
+  }
+
+  return authService.emailExists(String(c.value)).pipe(
+    map((user: any[]) => {
+      return user.length == 0 ? null : { emailExists: true };
+    })
+  );
+};

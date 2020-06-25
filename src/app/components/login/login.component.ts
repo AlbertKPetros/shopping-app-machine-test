@@ -21,6 +21,13 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    let creds = this.credentialService.getCredentials() || null;
+    if (creds != null) {
+      let redirectUrl =
+        creds.userType == 'seller' ? '/dashboard-seller' : '/dashboard-buyer';
+      this.router.navigate([redirectUrl]);
+    }
+
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -35,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.isSubmitted = true;
     if (this.form.valid) {
       let login = this.form.value;
+      login.email = login.email.toLowerCase();
       this.authService
         .getUserCredentialsByEmail(login)
         .subscribe((user: any) => {

@@ -86,7 +86,7 @@
                 <label>Email</label>
                 <input
                   type="email"
-                  class="form-control"
+                  class="form-control text-lowercase"
                   formControlName="email"
                   maxlength="30"
                   placeholder="Name"
@@ -105,6 +105,12 @@
                     *ngIf="registerFormControl.email.errors?.email"
                   >
                     Invalid email address
+                  </span>
+                  <span
+                    class="text-danger"
+                    *ngIf="registerFormControl.email.errors?.emailExists"
+                  >
+                    Email already taken,try another one
                   </span>
                 </ng-container>
               </div>
