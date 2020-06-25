@@ -10,8 +10,8 @@
     },
     {
       "id": "1009-32fb-cede-ee2d",
-      "userType": "seller",
-      "businessSize": "largeBusiness",
+      "userType": "buyer",
+      "businessSize": "",
       "name": "Alb",
       "email": "albert@gmail.com",
       "password": "Albert@123"

@@ -14,3 +14,12 @@ Run `json-server --watch users.json` for a dev server for API. Navigate to `http
 
 - [Registration](http://localhost:4200/register)
 - [Login](http://localhost:4200/login)
+- [DashBoard - Seller](http://localhost:4200/dashboard-seller)
+- [DashBoard - buyer](http://localhost:4200/dashboard-seller)
+- [404 Error](http://localhost:4200/not-found)
+
+## Features
+
+1. Register as buyer or seller (two types of users)
+2. Login functionality
+3. Different dashboard pages for each type of user and after logging in redirection to appropriate dashboard
