@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
-import { AuthenticationService } from '@app/services/authentication.service';
+import {
+  FormGroup,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +13,7 @@ export class CustomValidationService {
   constructor() {}
 
   passwordPattern(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } => {
+    return (control: AbstractControl): ValidationErrors => {
       if (!control.value) {
         return null;
       }

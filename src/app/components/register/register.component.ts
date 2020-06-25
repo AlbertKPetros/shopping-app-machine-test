@@ -93,7 +93,7 @@ export class RegisterComponent implements OnInit {
       if (confirm('Do you want to save?')) {
         this.authService
           .submitRegistration(this.form.value)
-          .subscribe((response: any) => {
+          .subscribe((user: any) => {
             this.toastr.success('', 'Registered successfully');
             this.router.navigate(['login']);
           });

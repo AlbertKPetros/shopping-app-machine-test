@@ -13,7 +13,7 @@ export class DropDownService {
   businessSize: DropDown[] = [
     { value: 'largeBusiness', text: 'Large Business' },
     { value: 'mediumBusiness', text: 'Medium Business' },
-    { value: 'largeBusiness', text: 'Large Business' },
+    { value: 'smallBusiness', text: 'Small Business' },
   ];
   constructor() {}
 

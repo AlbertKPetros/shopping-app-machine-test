@@ -57,7 +57,8 @@ export class LoginComponent implements OnInit {
   }
 
   navigateToDashBoard(userType: string) {
-    if (userType == 'seller') this.router.navigate(['dashboard-seller']);
-    else this.router.navigate(['dashboard-buyer']);
+    let redirectUrl =
+      userType == 'seller' ? '/dashboard-seller' : '/dashboard-buyer';
+    this.router.navigate([redirectUrl]);
   }
 }

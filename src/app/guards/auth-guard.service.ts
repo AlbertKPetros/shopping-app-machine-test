@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
-  CanActivateChild,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
@@ -38,6 +37,5 @@ export class AuthGuardService implements CanActivate {
       }
       return true;
     }
-    return false;
   }
 }

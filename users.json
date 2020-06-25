@@ -15,6 +15,14 @@
       "name": "Alb",
       "email": "albert@gmail.com",
       "password": "Albert@123"
+    },
+    {
+      "id": "2c25-66e3-b0fc-ae1c",
+      "userType": "seller",
+      "businessSize": "largeBusiness",
+      "name": "Fredin Francis",
+      "email": "fredinfrancis@gmail.com",
+      "password": "Fredin1"
     }
   ]
 }
